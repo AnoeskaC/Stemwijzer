@@ -1,6 +1,6 @@
 function agree(){
 	document.getElementById("firstChoice").innerHTML = "Eens";
-};
+}
 
 function neither() {
 	
