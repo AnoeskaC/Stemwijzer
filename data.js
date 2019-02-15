@@ -1,4 +1,4 @@
-var quests = 0;
+var questions = 0;
 
 var subjects = 
 [

@@ -1,13 +1,21 @@
 function agree(){
-	document.getElementById("firstChoice").innerHTML = "Eens";
+	questions++;
+	showQuestions();
 }
 
 function neither() {
-	
+	questions++;
+	showQuestions();
 }
 
 function disagree(){
+	questions++;
+	showQuestions();
+}
 
+function showquestions(){
+	document.getElementById("h1").innerHTML = subjects[questions].title;
+	document.getElementById("p1").innerHTML = subjects[questions].statement;
 }
 
 function start(){
@@ -18,11 +26,31 @@ function start(){
 	document.getElementById("disagreeButton").innerHTML = "Oneens";
 	document.getElementById("disagreeButton").style.display="inline";
 	document.getElementById("startButton").style.display="none";
-	document.getElementById("h1").innerHTML = subjects[0].title;
-	document.getElementById("p1").innerHTML = subjects[0].statement;
+	document.getElementById("h1").innerHTML = subjects[questions].title;
+	document.getElementById("p1").innerHTML = subjects[questions].statement;
+	questions = 0;
 	document.getElementById("stemwijzer").style.display= "none";
-	document.getElementById("h2").style.display= "none";
 	document.getElementById("p2").style.display= "none";
 	document.getElementById("partijen").style.display= "inline";
+	document.getElementById("backButton").style.display= "inline";
 }
 
+function back(){
+
+	questions--;
+
+	if (questions >= 0) {
+		showquestions();
+	}
+
+	if (questions < 0) {
+		document.getElementById("agreeButton").style.display="none";
+		document.getElementById("neitherButton").style.display="none";
+		document.getElementById("disagreeButton").style.display="none";
+		document.getElementById("backButton").style.display="none";
+		document.getElementById("startButton").style.display="inherit";
+		document.getElementById("h1").innerHTML="Test uw politieke voorkeur aan de hand van 30 stellingen";
+		document.getElementById("p1").innerHTML="";
+	}
+
+}

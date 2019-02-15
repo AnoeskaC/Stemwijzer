@@ -60,7 +60,7 @@ body{
 	display: none;
 }
 
-#h2{
+#h1{
 	font-size: 22px;
     font-weight: bold;
     color: #01B4DC;
@@ -76,4 +76,9 @@ body{
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+}
+
+#backButton{
+	display: none;
+	background-color: gray;
 }
