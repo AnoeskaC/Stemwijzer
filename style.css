@@ -4,14 +4,35 @@ body{
 	position: relative;
 }
 
+
 .block{
 	background-color: white;
 	width: 1000px;
-	height: 700px;
+	height: 100px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 5em;
 }
+
+.into{
+	background-color: white;
+	width: 1000px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5em;
+}
+
+.into-partijen{
+	background-color: #01B4DC;
+	width: 1000px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5em;
+}
+
+
 
 #start{
 	background-color: black;
@@ -37,4 +58,22 @@ body{
 
 #partijen{
 	display: none;
+}
+
+#h2{
+	font-size: 22px;
+    font-weight: bold;
+    color: #01B4DC;
+    line-height: 1.3em;
+    padding: 1em 0;
+}
+
+#stemmenTracker{
+	width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }

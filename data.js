@@ -1,3 +1,5 @@
+var quests = 0;
+
 var subjects = 
 [
 /* example subject with parties and their positions:

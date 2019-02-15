@@ -18,4 +18,11 @@ function start(){
 	document.getElementById("disagreeButton").innerHTML = "Oneens";
 	document.getElementById("disagreeButton").style.display="inline";
 	document.getElementById("startButton").style.display="none";
+	document.getElementById("h1").innerHTML = subjects[0].title;
+	document.getElementById("p1").innerHTML = subjects[0].statement;
+	document.getElementById("stemwijzer").style.display= "none";
+	document.getElementById("h2").style.display= "none";
+	document.getElementById("p2").style.display= "none";
+	document.getElementById("partijen").style.display= "inline";
 }
+
