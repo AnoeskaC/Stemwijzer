@@ -13,7 +13,7 @@ function disagree(){
 	showQuestions();
 }
 
-function showquestions(){
+function showQuestions(){
 	document.getElementById("h1").innerHTML = subjects[questions].title;
 	document.getElementById("p1").innerHTML = subjects[questions].statement;
 }
@@ -40,7 +40,7 @@ function back(){
 	questions--;
 
 	if (questions >= 0) {
-		showquestions();
+		showQuestions();
 	}
 
 	if (questions < 0) {
