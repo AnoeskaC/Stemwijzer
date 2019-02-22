@@ -1,4 +1,4 @@
-function eens(){
+function eens() {
 	antwoord[questions] = "pro";
 	volgendeQuestion();
 	showQuestions();
@@ -9,24 +9,24 @@ function geenVanBeide() {
 	showQuestions();
 }
 
-function oneens(){
+function oneens() {
 	antwoord[questions] = "contra";
 	volgendeQuestion();
 	showQuestions();
 }
 
-function showQuestions(){
+function showQuestions() {
 	document.getElementById("h1").innerHTML = subjects[questions].title;
 	document.getElementById("p1").innerHTML = subjects[questions].statement;
 }
 
-function volgendeQuestion(){
+function volgendeQuestion() {
 	if (questions < alleVragen) {
 		questions++;
 	}
 }
 
-function start(){
+function start() {
 	questions = 0;
 	document.getElementById("eensButton").innerHTML = "Eens";
 	document.getElementById("eensButton").style.display="inline";
@@ -43,7 +43,7 @@ function start(){
 	document.getElementById("backButton").style.display= "inline";
 }
 
-function back(){
+function back() {
 
 	questions--;
 

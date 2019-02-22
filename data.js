@@ -1,7 +1,6 @@
 var questions = 0;
 
-var subjects = 
-[
+var subjects = [];
 /* example subject with parties and their positions:
 {
 	title: "subject title",
