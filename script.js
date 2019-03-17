@@ -35,12 +35,11 @@ function start() {
 	document.getElementById("oneensButton").innerHTML = "Oneens";
 	document.getElementById("oneensButton").style.display="inline";
 	document.getElementById("startButton").style.display="none";
-	document.getElementById("h1").innerHTML = subjects[questions].title;
-	document.getElementById("p1").innerHTML = subjects[questions].statement;
 	document.getElementById("stemwijzer").style.display= "none";
 	document.getElementById("p2").style.display= "none";
 	document.getElementById("partijen").style.display= "inline";
 	document.getElementById("backButton").style.display= "inline";
+	showQuestions()
 }
 
 function back() {
@@ -62,4 +61,3 @@ function back() {
 	}
 
 }
-

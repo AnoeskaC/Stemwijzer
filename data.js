@@ -1,6 +1,8 @@
 var questions = 0;
 
-var subjects = [];
+var subjects = 
+[
+
 /* example subject with parties and their positions:
 {
 	title: "subject title",
@@ -12,6 +14,7 @@ var subjects = [];
 	]
 }
 */
+
 {
 	title: "Bindend referendum",
 	statement: "Er moet een bindend referendum komen, waarmee burgers door het parlement aangenomen wetten kunnen tegenhouden.",
@@ -233,8 +236,6 @@ var parties = [
 	{name: "Artikel 1", secular: true, size: 0},
 	{name: "Libertarische Partij", secular: true, size: 0}
 ];
-
-
 
 
 //my code
