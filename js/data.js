@@ -1,5 +1,3 @@
-var questions = 0;
-
 var subjects = 
 [
 
@@ -241,6 +239,3 @@ var parties = [
 //my code
 
 var alleVragen =subjects.length-1;
-
-var antwoord = [];
-

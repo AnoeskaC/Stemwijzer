@@ -1,16 +1,20 @@
-function eens() {
-	antwoord[questions] = "pro";
+var questions = 0;
+var answer = [];
+
+function real() {
+	answer[questions] = "pro";
 	volgendeQuestion();
 	showQuestions();
 }
 
-function geenVanBeide() {
+function neither() {
+	answer[questions] = "skip";
 	volgendeQuestion();
 	showQuestions();
 }
 
-function oneens() {
-	antwoord[questions] = "contra";
+function notReal() {
+	answer[questions] = "contra";
 	volgendeQuestion();
 	showQuestions();
 }
@@ -20,7 +24,7 @@ function showQuestions() {
 	document.getElementById("p1").innerHTML = subjects[questions].statement;
 }
 
-function volgendeQuestion() {
+function nextQuestion() {
 	if (questions < alleVragen) {
 		questions++;
 	}
