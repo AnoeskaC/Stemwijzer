@@ -6,38 +6,80 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-	<div class="block">
-
-		<img src="foto/logostemwijzer.png" id="stemwijzer">
-		
-		<button id="backButton" onclick="back()">&larr;</button>
-
-		<h1 id="h1">Test uw politieke voorkeur aan de hand van 30 stellingen</h1>
-		<p id="p1"></p>
-
-		<button id="eensButton" onclick="eens()"></button>
-		<button id="geenVanBeideButton" onclick="geenVanBeide()"></button>
-		<button id="oneensButton" onclick="oneens()"></button>
-		<button id="startButton" onclick="start()">Start</button>
-
-		<span id="partijen"><p>Wat vinden de partijen?</p></span>
-
-
+<main class="block">
+	<div id="intro">
+		<div class="text">
+			<p>StemWijzer Tweede Kamer 2017</p>
+			<div>
+				<h2>Test uw politieke voorkeur aan de hand van 30 stellingen</h2>
+				<p>
+					<button id="start" onclick="start()">Start</button>
+				</p>
+			</div>
+		</div>
 	</div>
 
-	<div class="into">
+	<div id="questions">
+		<button onclick="goToBackStatement()">&#8678;</button>
+			<div id="question-container">
+				<h1 id="question-title"></h1>
+				<p id="question-description"></p>
+			</div>
+		<div>
+			<button id="proButton" onclick="goToNextStatement('pro')">Eens</button>
+			<button id="neitherButton" onclick="goToNextStatement('neither')">Geen van beide</button>
+			<button id="contraButton" onclick="goToNextStatement('contra')">Oneens</button>
+			<button id="skipButton" onclick="goToNextStatement('skip')">Sla deze vraag over</button>
+		</div>
+		<details>
+			<summary>
+				Wat vinden de partijen?
+			</summary>
+			<div class=advices>
+				<div id="adviceAgree">
+					<h3>Eens</h3>
+					<div id="adviceAgreeList"></div>
+				</div>
+				<div id="adviceNeither">
+					<h3>Geen van beide</h3>
+					<div id="adviceNeitherList"></div>
 
-			<a href="https://tweedekamer2017.stemwijzer.nl/xsable/">Bekijk de toegankelijke versie voor mensen met een visuele beperking</a>
-
-			<h2 id="stemmenTracker"><a href="https://stemmentracker.nl/">Of blik terug met de stemmenTracker</a></h2>
-			
-
-			<p id="p2">Wat hebben de partijen in het verleden waargemaakt van hun verkiezingsbeloften? 'Track' uw stem met de Stemmentracker, een website die terugblikt op 30 Tweede Kamerstemmingen van de afgelopen regeerperiode. Met welke partij stemde u mee?</p>
-
+				</div>
+				<div id="adviceDisagree">
+					<h3>Oneens</h3>
+					<div id="adviceDisagreeList"></div>
+				</div>
+			</div>
+		</details>
 	</div>
 
-<script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript" src="js/data.js"></script>
+	<div id="goToAfter">
+		<button onclick="goToSettingSelection()">Ga verder</button>
+		<div id="goToSubjects">
+		</div>
+	</div>
+
+	<div id="complete">
+		<button onclick="finish()">Afronden</button>
+		<h2>Kies de partijen die u mee wilt nemen in het resultaat</h2>
+			<button onclick="selectAllParties(1)">Selecteer alles</button>
+			<button onclick="selectAllParties(2)">Selecteer zittende partijen</button>
+			<button onclick="selectAllParties(3)">Selecteer seculiere partijen</button>
+			<button onclick="selectAllParties(0)">Verwijder selectie</button>
+		<div id="completeSubjects">
+		</div>
+	</div>
+
+	<div class="result">
+		<h1>Uw mening komt het best overeen met:</h1>
+		<ul id="resultContent">
+
+		</ul>
+	</div>
+</main>
+
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+
 </body>
 </html>

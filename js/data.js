@@ -234,8 +234,3 @@ var parties = [
 	{name: "Artikel 1", secular: true, size: 0},
 	{name: "Libertarische Partij", secular: true, size: 0}
 ];
-
-
-//my code
-
-var alleVragen =subjects.length-1;
