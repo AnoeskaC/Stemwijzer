@@ -1,6 +1,7 @@
+var currentQuestion = 0;
+
 var subjects = 
 [
-
 /* example subject with parties and their positions:
 {
 	title: "subject title",
@@ -12,7 +13,6 @@ var subjects =
 	]
 }
 */
-
 {
 	title: "Bindend referendum",
 	statement: "Er moet een bindend referendum komen, waarmee burgers door het parlement aangenomen wetten kunnen tegenhouden.",
@@ -107,7 +107,6 @@ var subjects =
 	{name: "VNL", position: "pro", explanation: "Wij zijn een groot voorstander van de vrijheid van meningsuiting. Het debat hoort thuis in de samenleving en het parlement, niet in de rechtszaal. Het mag niet zo zijn dat tekenaars uit hun bed worden gehaald door de politie (zoals gebeurde bij Gregorius Nekschot) of dat politici vanwege hun mening worden veroordeeld (zoals bij Wilders)."},
 	{name: "Forum voor Democratie", position: "pro", explanation: "FVD maakt zich bij uitstek hard voor de Vrijheid van Meningsuiting. We zijn zelfs een petitie gestart naar aanleiding van de veroordeling van Geert Wilders, waarbij we pleiten voor de afschaffing van artikelen 137c en 137d uit het Wetboek van Strafrecht. Voor ons staat vrijheid van meningsuiting op de allereerste plek."},
 	{name: "Libertarische Partij", position: "pro", explanation: "Vrijheid van meningsuiting is een groot goed. Zolang er niet wordt opgeroepen tot geweld, vinden wij dat burgers in het publieke debat moeten kunnen zeggen wat ze willen. Daar staat tegenover dat impopulaire meningen hand en tand bestreden kunnen worden. Dit is de essentie van een vrije samenleving."},
-
 	{name: "Piratenpartij", position: "ambivalent", explanation: "De Piratenpartij is tegen het strafbaarstellen van beledigingen. Discriminatie (een beoordeling op basis van ras, godsdienst of geaardheid) moet echter wÃ©l strafbaar blijven. De Piratenpartij wil niet tornen aan het recht op gelijke behandeling."},
 	{name: "PvdA", position: "contra", explanation: "Vrijheid van meningsuiting is een recht. Beledigen op grond van ras, godsdienst of geaardheid is dat niet. Net als het aanzetten tot haat jegens elkander."},
 	{name: "SP", position: "contra", explanation: "De strafbaarheid op belediging van groepen blijkt in de praktijk een nuttig middel om bijvoorbeeld antisemitisme of religieuze haatoproepen tegen homoseksuelen tegen te gaan."},
@@ -213,24 +212,31 @@ var subjects =
 ];
 
 var parties = [
-	{name: "VVD", secular: true, size: 33, long: "Volkspartij voor Vrijheid en Democratie"},
-	{name: "CDA", secular: false, size: 19, long: "Christen Democratisch Appel"},
-	{name: "PVV", secular: true, size: 20, long: "Partij voor de Vrijheid"},
-	{name: "D66", secular: true, size: 19, long: "Democratie 66"},
-	{name: "GroenLinks", secular: true, size: 14},
-	{name: "SP", secular: true, size: 14, long: "Socialistische Partij"},
-	{name: "PvdA", secular: true, size: 9, long: "Partij van de Arbeid"},
-	{name: "ChristenUnie", secular: false, size: 5},
-	{name: "Partij voor de Dieren", secular: true, size: 33},
-	{name: "SGP", secular: false, size: 33, long: "Staatkundig Gerefomeerde Partij"},
-	{name: "DENK", secular: true, size: 3},
-	{name: "Forum voor Democratie", secular: true, size: 2},
-	{name: "Lokaal in de kamer", secular: true, size: 0},
-	{name: "OndernemersPartij", secular: true, size: 0},
-	{name: "VNL", secular: true, size: 0},
-	{name: "Nieuwe Wegen", secular: true, size: 0},
-	{name: "De Burger Beweging", secular: true, size: 0},
-	{name: "Piratenpartij", secular: true, size: 0},
-	{name: "Artikel 1", secular: true, size: 0},
-	{name: "Libertarische Partij", secular: true, size: 0}
+	{name: "VVD", secular: true, size: 33, long: "Volkspartij voor Vrijheid en Democratie", howMuchAgreed: 0},
+	{name: "CDA", secular: false, size: 19, long: "Christen Democratisch Appel", howMuchAgreed: 0},
+	{name: "PVV", secular: true, size: 20, long: "Partij voor de Vrijheid", howMuchAgreed: 0},
+	{name: "D66", secular: true, size: 19, long: "Democratie 66", howMuchAgreed: 0},
+	{name: "GroenLinks", secular: true, size: 14, howMuchAgreed: 0},
+	{name: "SP", secular: true, size: 14, long: "Socialistische Partij", howMuchAgreed: 0},
+	{name: "PvdA", secular: true, size: 9, long: "Partij van de Arbeid", howMuchAgreed: 0},
+	{name: "ChristenUnie", secular: false, size: 5, howMuchAgreed: 0},
+	{name: "Partij voor de Dieren", secular: true, size: 33, howMuchAgreed: 0},
+	{name: "SGP", secular: false, size: 33, long: "Staatkundig Gerefomeerde Partij", howMuchAgreed: 0},
+	{name: "DENK", secular: true, size: 3, howMuchAgreed: 0},
+	{name: "Forum voor Democratie", secular: true, size: 2, howMuchAgreed: 0},
+	{name: "Lokaal in de kamer", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "OndernemersPartij", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "VNL", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "Nieuwe Wegen", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "De Burger Beweging", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "Piratenpartij", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "Artikel 1", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "Libertarische Partij", secular: true, size: 0, howMuchAgreed: 0},
+	{name: "Vrijzinnige Partij", secular: true, size: 0, howMuchAgreed: 0},
 ];
+
+
+
+var totalAmountOfQuestions = subjects.length -1;
+
+var chosenAnswer = [];
