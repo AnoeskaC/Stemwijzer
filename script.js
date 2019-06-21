@@ -1,7 +1,3 @@
-var parties = {};
-
-
-
 function collectData()
 {
 		function reqListener () 
@@ -16,7 +12,7 @@ function collectData()
 	oReq.send();
 }
 
-collectData();
+//collectData();
 
 
 function agree()
@@ -50,7 +46,7 @@ function newCurrentQuestion()
 	else if (currentQuestion = totalAmountOfQuestions) 
 	{
 		currentQuestion++;
-		showResults();
+		addPartyVotes();
 	}
 }
 
@@ -71,6 +67,7 @@ function showOpinions()
 
 function previousQuestion()
 {
+
 	currentQuestion--;
 	chosenAnswer[currentQuestion] = 0;
 
@@ -94,6 +91,7 @@ function previousQuestion()
 			document.getElementById("disagreeButton").style.display="inline";
 			document.getElementById("partijenMeening").style.display="inline";
 			showQuestion();
+			document.getElementById("partyResults").innerHTML = "";
 		}
 	}
 }
@@ -110,39 +108,38 @@ function start()
 	document.getElementById("startButton").style.display="none";
 	showQuestion()
 }
+	
 
+function addPartyVotes(){
 
-function openPartyList()
-{
+    for (let partie = 0; partie < parties.length; partie++) {
+                parties[partie].howMuchAgreed = 0;
+    }
+    for (var subject = 0; subject < subjects.length; subject++) {
+        for (var subjectParty = 0; subjectParty < subjects[subject].parties.length; subjectParty++) {
+            if (subjects[subject].parties[subjectParty].position === chosenAnswer[subject]) {
+                /*let matchedParty = parties.find(function(element){
+                    console.log('match nu het volgende:');
+                    console.log (element.name + ' is dat gelijk aan: '+subjects[subject].parties[subjectParty].name);
+                    return element.name === subjects[subject].parties[subjectParty].name;
+                })
 
+                if (matchedParty){
+                    matchedParty.howMuchAgreed++;
+                }*/
+                for (var i = 0; i < parties.length; i++) {
+                    if (parties[i].name === subjects[subject].parties[subjectParty].name) {parties[i].howMuchAgreed++}
+                }
+
+            }
+        }
+    }
+    console.log(parties)
+    /*parties.sort(function (a, b) {
+        return b.howMuchAgreed - a.howMuchAgreed;
+    });*/
+    showResults()
 }
-
-
-function addPartyVotes()
-{
-	for (var subject = 0; subject < subjects.length; subject++) 
-	{
-		parties.push(subject) 
-		parties[subject].howMuchAgreed = 0;
-	}
-
-	for (var subject = 0; subject < subjects.length; subject++) 
-	{
-		for (var subjectParty = 0; subjectParty < subjects[subject].parties.length; subjectParty++) 
-		{
-			if (subjects[subject].parties[subjectParty].position === chosenAnswer[subject]) 
-				{	
-					parties[subject].howMuchAgreed++;
-				}
-		}
-	}
-	parties.sort(function (a, b) 
-	{
-		return a.howMuchAgreed - b.howMuchAgreed;
-	});
-	parties.reverse();
-}
-
 
 
 var partiesOrdered = [];
@@ -152,8 +149,7 @@ var pushedPartyName;
 
 
 function showResults(){
-	addPartyVotes();
-	
+		
 	document.getElementById("agreeButton").style.display="none";
 	document.getElementById("neitherButton").style.display="none";
 	document.getElementById("disagreeButton").style.display="none";
